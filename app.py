@@ -149,7 +149,7 @@ class ControlHandler(TemplateHandler):
             print("Move Right")
         else :
             print("Do Nothing")
-
+        self.redirect('/')
 
 # Make the Web Applicaton using Tornado
 def make_app():
