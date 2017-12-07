@@ -27,10 +27,10 @@ def turnOffMotors():
 atexit.register(turnOffMotors)
 
 #motor pin setup on the Adafruit DC motor Pi Hat
-motorFrontLeft = mh.getMotor(4)#M1
-motorFrontRight = mh.getMotor(3)#M2
-motorBackLeft = mh.getMotor(2)#M3
-motorBackRight = mh.getMotor(1)#M4
+motorBackRight = mh.getMotor(1)  #M1
+motorBackLeft = mh.getMotor(2)  #M2
+motorFrontRight = mh.getMotor(3)  #M3
+motorFrontLeft = mh.getMotor(4)  #M4
 interval = 1 #interval to check for key press/release - change to increase/decrease sensetivity
 minSpeed = 100
 maxSpeed = 200
