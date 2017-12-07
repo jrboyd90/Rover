@@ -2,6 +2,7 @@ import os
 import tornado.log
 import tornado.ioloop
 import tornado.web
+import tornado.websocket
 import time
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 import atexit
@@ -52,6 +53,19 @@ def moveFoward(speed,runTime):
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
+
+
+def moveFowardWS(speed):
+    motorBackLeft.setSpeed(speed)
+    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorBackRight.setSpeed(speed)
+    motorBackRight.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontLeft.setSpeed(speed)
+    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontRight.setSpeed(speed)
+    motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
+    return
+
 #moving backward
 def moveBackward(speed,runTime):
     motorBackLeft.setSpeed(speed)
@@ -131,6 +145,15 @@ def decreaseSpeed():
         print ('speed -10')
         print ('speed =' + speed)
 
+# release the motors for the Websocket
+def releaseWS():
+    motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorBackRight.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
+    return
+
+
 class TemplateHandler(tornado.web.RequestHandler):
     def render_template (self, tpl, context):
         template = ENV.get_template(tpl)
@@ -142,6 +165,7 @@ class MainHandler(TemplateHandler):
          'no-store, no-cache, must-revalidate, max-age=0')
         self.render_template("index.html", {})
 
+
 class ControlHandler(TemplateHandler):
     def post(self):
         button = self.get_body_argument('buttonPress')
@@ -151,26 +175,61 @@ class ControlHandler(TemplateHandler):
         elif button == 'Slow':
             decreaseSpeed()
         elif button == 'Foward':
-            moveFoward(speed,2) #increase or decrese this time for sensitivity
+            moveFoward(speed,2)  #increase or decrese this time for sensitivity
             print("Move Foward")
         elif button == 'Back':
-            moveBackward(speed,2)
+            moveBackward(speed, 2)
             print("Move Back")
         elif button == 'Left':
-            turnFowardLeft(speed,220,.5)
+            turnFowardLeft(speed, 220, .5)
             print("Move Left")
         elif button == 'Right':
-            turnFowardRight(speed,220,.5)
+            turnFowardRight(speed, 220, .5)
             print("Move Right")
-        else :
+        else:
             print("Do Nothing")
         self.redirect('/')
+
+
+class WebSocketHandler(TemplateHandler):
+    def check_origin(self, origin):
+        return True
+
+    def open(self):
+        print('open')
+
+    def on_message(self, message):
+        button = message
+        print("The button hit is '" + button + "'")
+        if button == 'Fast':
+            increaseSpeedWS()
+        elif button == 'Slow':
+            decreaseSpeedWS()
+        elif button == 'Foward':
+            moveFowardWS(speed)
+            print("Move Foward")
+        elif button == 'Back':
+            moveBackwardWS(speed,2)
+            print("Move Back")
+        elif button == 'Left':
+            turnFowardLeftWS(speed,220,.5)
+            print("Move Left")
+        elif button == 'Right':
+            turnFowardRightWS(speed,220,.5)
+            print("Move Right")
+        elif button == 'release':
+            releaseWS()
+
+    def on_close(self):
+        print('closed')
+
 
 # Make the Web Applicaton using Tornado
 def make_app():
     return tornado.web.Application([
       (r"/", MainHandler),
-      (r"/control", ControlHandler)
+      (r"/control", ControlHandler),
+      (r"/ws", WebSocketHandler),
       ], autoreload=True)
 
 if __name__ == "__main__":

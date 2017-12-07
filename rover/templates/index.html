@@ -33,6 +33,24 @@
       	</tr>
 
       </table>
-    </form>
+		</form>
+		<script>
+
+			var ws = new WebSocket("ws://raspberrypi:8080/ws");
+
+			ws.onopen = function () {
+				console.log("connected");
+			};
+
+			$(window).keypress(function (e) { // pressing key 
+					if (e.keyCode == 87) { // w 
+						ws.send("Forward");
+					}
+				});
+
+			ws.onclose = function () {
+				console.log("disconnected");
+			};
+		</script>
   </body>
 </html>
