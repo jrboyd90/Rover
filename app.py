@@ -5,7 +5,7 @@ import tornado.web
 import time
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 import atexit
-import jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader, select_autoescape
 
 PORT = int(os.environ.get('PORT', '8080'))
 
