@@ -27,7 +27,7 @@ def turnOffMotors():
 atexit.register(turnOffMotors)
 
 #motor pin setup on the Adafruit DC motor Pi Hat
-motorFrontLeft = mh.getMotor(4)#M1 
+motorFrontLeft = mh.getMotor(4)#M1
 motorFrontRight = mh.getMotor(3)#M2
 motorBackLeft = mh.getMotor(2)#M3
 motorBackRight = mh.getMotor(1)#M4
@@ -69,26 +69,8 @@ def moveBackward(speed,runTime):
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
-#Turn Right 
+#Turn Right
 def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
-    motorBackLeft.setSpeed(speedBackMotor)
-    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
-    motorFrontLeft.setSpeed(speedFrontMotor)
-    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
-    motorBackRight.setSpeed(speedBackMotor)
-    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
-    motorFrontRight.setSpeed(speedFrontMotor)
-    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
-    time.sleep(runTime);
-    # turn off motor
-    motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
-    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
-    motorBackRight.run(Adafruit_MotorHAT.RELEASE)
-    motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
-    return;
-
-#Turn left 
-def turnFowardLeft(speedBackMotor,speedFrontMotor,runTime):
     motorBackLeft.setSpeed(speedBackMotor)
     motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
@@ -97,13 +79,32 @@ def turnFowardLeft(speedBackMotor,speedFrontMotor,runTime):
     motorBackRight.run(Adafruit_MotorHAT.FORWARD)
     motorFrontRight.setSpeed(speedFrontMotor)
     motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
-    time.sleep(runTime);
+    time.sleep(runTime)
     # turn off motor
     motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
     motorBackRight.run(Adafruit_MotorHAT.RELEASE)
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
-    return;
+    return
+
+
+#Turn left
+def turnFowardLeft(speedBackMotor, speedFrontMotor, runTime):
+    motorBackLeft.setSpeed(speedBackMotor)
+    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontLeft.setSpeed(speedFrontMotor)
+    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorBackRight.setSpeed(speedBackMotor)
+    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontRight.setSpeed(speedFrontMotor)
+    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
+    time.sleep(runTime)
+    # turn off motor
+    motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorBackRight.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
+    return
 
 #Increase speed
 def increaseSpeed():
