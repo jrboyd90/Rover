@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>surveillance Rover</title>
+  </head>
+  <body>
+    <img src="http://192.168.254.14:8888/video" style="width:100%; max-width: 800px; max-height:800px; border-radius:10px"></img>
+    <form action="/control" method="post">
+      <table style = "width:100%">
+      	<tr>
+      		<td></td>
+      		<td>
+      		 <input type="submit" value="Foward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+      		<td></td>
+      		<td>
+      		 <input type="submit" value="Fast" name ="buttonPress" style = "height:150px;width:150px; color:#a7cb00; font-weight:bold;font-size: 200%"></input>
+      		</td>
+
+      	</tr>
+      	<tr>
+      		<td>
+      		 <input type="submit" value="Left" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+      		</td>
+      		<td>
+      		 <input type="submit" value="Back" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+      		</td>
+      		<td>
+      		 <input type="submit" value="Right" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 200%"></input>
+      		<td>
+      		 <input type="submit" value="Slow" name ="buttonPress" style = "height:150px;width:150px; color:#f00; font-weight:bold; font-size: 200%"></input>
+      		</td>
+      	</tr>
+
+      </table>
+    </form>
+  </body>
+</html>
