@@ -27,10 +27,10 @@ def turnOffMotors():
 atexit.register(turnOffMotors)
 
 #motor pin setup on the Adafruit DC motor Pi Hat
-motorFrontLeft = mh.getMotor(1)
-motorFrontRight = mh.getMotor(2)
-motorBackLeft = mh.getMotor(3)
-motorBackRight = mh.getMotor(4)
+motorFrontLeft = mh.getMotor(4)#M1 
+motorFrontRight = mh.getMotor(3)#M2
+motorBackLeft = mh.getMotor(2)#M3
+motorBackRight = mh.getMotor(1)#M4
 interval = 1 #interval to check for key press/release - change to increase/decrease sensetivity
 minSpeed = 100
 maxSpeed = 200
@@ -154,10 +154,10 @@ class ControlHandler(TemplateHandler):
             moveBackward(speed,2)
             print("Move Back")
         elif button == 'Left':
-            turnFowardLeft(speed,220,2)
+            turnFowardLeft(speed,220,.5)
             print("Move Left")
         elif button == 'Right':
-            turnFowardRight(speed,220,2)
+            turnFowardRight(speed,220,.5)
             print("Move Right")
         else :
             print("Do Nothing")
