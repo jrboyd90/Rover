@@ -35,6 +35,77 @@ minSpeed = 100
 maxSpeed = 200
 speed = 100 #intial speed
 
+def moveFoward(speed,runTime):
+    motorBackLeft.setSpeed(speed)
+    motorBackLeft.run(Adafruit_MotorHAT.FORWARD);
+    motorBackRight.setSpeed(speed)
+    motorBackRight.run(Adafruit_MotorHAT.FORWARD);
+    motorFrontLeft.setSpeed(speed)
+    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD);
+    motorFrontRight.setSpeed(speed)
+    motorFrontRight.run(Adafruit_MotorHAT.FORWARD);
+    time.sleep(runTime);#this is not required as motors are release on key release
+    #turn on motor
+    motorBackLeft.run(Adafruit_MotorHAT.RELEASE); #release when key is release
+    motorBackRight.run(Adafruit_MotorHAT.RELEASE);
+    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE); 
+    motorFrontRight.run(Adafruit_MotorHAT.RELEASE); 
+    return;
+#moving backward
+def moveBackward(speed,runTime):
+    motorBack.setSpeed(speed)
+    motorBack.run(Adafruit_MotorHAT.BACKWARD);
+    time.sleep(runTime);
+    # turn on motor
+    motorBack.run(Adafruit_MotorHAT.RELEASE);
+    return;
+#Turn Right - note this was created for a monster truck toy - which uses a dc motor to move the axel to about 30 degress
+def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
+    motorBack.setSpeed(speedBackMotor)
+    motorBack.run(Adafruit_MotorHAT.FORWARD);
+    motorFront.setSpeed(speedFrontMotor)
+    motorFront.run(Adafruit_MotorHAT.FORWARD);
+    time.sleep(runTime);
+    # turn on motor
+    motorBack.run(Adafruit_MotorHAT.RELEASE);
+    motorFront.run(Adafruit_MotorHAT.RELEASE);
+    return;
+
+#Turn left - note this was created for a monster truck toy - which uses a dc motor to move the axel to about 30 degress
+def turnFowardLeft(speedBackMotor,speedFrontMotor,runTime):
+    motorBack.setSpeed(speedBackMotor)
+    motorBack.run(Adafruit_MotorHAT.FORWARD);
+    motorFront.setSpeed(speedFrontMotor)
+    motorFront.run(Adafruit_MotorHAT.BACKWARD);
+    time.sleep(runTime);
+    # turn on motor
+    motorBack.run(Adafruit_MotorHAT.RELEASE);
+    motorFront.run(Adafruit_MotorHAT.RELEASE);
+    return;
+
+#Increase speed
+def increaseSpeed():
+    global speed
+    global maxSpeed
+    global minSpeed
+    if speed <= maxSpeed:
+        speed = speed + 10 #increaseing speed by 10
+        print ('speed +10')
+    else:
+        speed = maxSpeed
+
+#Decrease speed
+def decreaseSpeed():
+    global speed
+    global maxSpeed
+    global minSpeed
+    if speed <= minSpeed:
+        speed = minSpeed
+        print ('speed = minSpeed')
+    else:
+        speed = speed - 10
+        print ('speed -10')
+
 class TemplateHandler(tornado.web.RequestHandler):
     def render_template (self, tpl, context):
         template = ENV.get_template(tpl)
@@ -68,6 +139,7 @@ class ControlHandler(TemplateHandler):
             print("Move Right")
         else :
             print("Do Nothing")
+
 
 # Make the Web Applicaton using Tornado
 def make_app():
