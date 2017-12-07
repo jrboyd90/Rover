@@ -114,6 +114,7 @@ def increaseSpeed():
     if speed <= maxSpeed:
         speed = speed + 10 #increaseing speed by 10
         print ('speed +10')
+        print('speed =' + speed)
     else:
         speed = maxSpeed
 
@@ -128,6 +129,7 @@ def decreaseSpeed():
     else:
         speed = speed - 10
         print ('speed -10')
+        print ('speed =' + speed)
 
 class TemplateHandler(tornado.web.RequestHandler):
     def render_template (self, tpl, context):
