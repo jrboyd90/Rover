@@ -46,7 +46,7 @@ def moveFoward(speed,runTime):
     motorFrontRight.setSpeed(speed)
     motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
     time.sleep(runTime);#this is not required as motors are release on key release
-    #turn on motor
+    #turn off motor
     motorBackLeft.run(Adafruit_MotorHAT.RELEASE) #release when key is release
     motorBackRight.run(Adafruit_MotorHAT.RELEASE)
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
@@ -63,34 +63,46 @@ def moveBackward(speed,runTime):
     motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
     time.sleep(runTime);
-    # turn on motor
+    # turn off motor
     motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
     motorBackRight.run(Adafruit_MotorHAT.RELEASE)
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
-#Turn Right - note this was created for a monster truck toy - which uses a dc motor to move the axel to about 30 degress
+#Turn Right 
 def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
-    motorBack.setSpeed(speedBackMotor)
-    motorBack.run(Adafruit_MotorHAT.FORWARD);
-    motorFront.setSpeed(speedFrontMotor)
-    motorFront.run(Adafruit_MotorHAT.FORWARD);
+    motorBackLeft.setSpeed(speedBackMotor)
+    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontLeft.setSpeed(speedFrontMotor)
+    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorBackRight.setSpeed(speedBackMotor)
+    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontRight.setSpeed(speedFrontMotor)
+    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
     time.sleep(runTime);
-    # turn on motor
-    motorBack.run(Adafruit_MotorHAT.RELEASE);
-    motorFront.run(Adafruit_MotorHAT.RELEASE);
+    # turn off motor
+    motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorBackRight.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
 
-#Turn left - note this was created for a monster truck toy - which uses a dc motor to move the axel to about 30 degress
+#Turn left 
 def turnFowardLeft(speedBackMotor,speedFrontMotor,runTime):
-    motorBack.setSpeed(speedBackMotor)
-    motorBack.run(Adafruit_MotorHAT.FORWARD);
-    motorFront.setSpeed(speedFrontMotor)
-    motorFront.run(Adafruit_MotorHAT.BACKWARD);
+    motorBackLeft.setSpeed(speedBackMotor)
+    motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontLeft.setSpeed(speedFrontMotor)
+    motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorBackRight.setSpeed(speedBackMotor)
+    motorBackRight.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontRight.setSpeed(speedFrontMotor)
+    motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
     time.sleep(runTime);
-    # turn on motor
-    motorBack.run(Adafruit_MotorHAT.RELEASE);
-    motorFront.run(Adafruit_MotorHAT.RELEASE);
+    # turn off motor
+    motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
+    motorBackRight.run(Adafruit_MotorHAT.RELEASE)
+    motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
 
 #Increase speed
