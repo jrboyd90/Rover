@@ -72,13 +72,13 @@ def moveBackward(speed,runTime):
 #Turn Right
 def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
     motorBackLeft.setSpeed(speedBackMotor)
-    motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
-    motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
     motorBackRight.setSpeed(speedBackMotor)
-    motorBackRight.run(Adafruit_MotorHAT.FORWARD)
+    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontRight.setSpeed(speedFrontMotor)
-    motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
     time.sleep(runTime)
     # turn off motor
     motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
@@ -91,13 +91,13 @@ def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
 #Turn left
 def turnFowardLeft(speedBackMotor, speedFrontMotor, runTime):
     motorBackLeft.setSpeed(speedBackMotor)
-    motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
-    motorFrontLeft.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorBackRight.setSpeed(speedBackMotor)
-    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
+    motorBackRight.run(Adafruit_MotorHAT.FORWARD)
     motorFrontRight.setSpeed(speedFrontMotor)
-    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
     time.sleep(runTime)
     # turn off motor
     motorBackLeft.run(Adafruit_MotorHAT.RELEASE)
