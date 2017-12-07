@@ -42,7 +42,7 @@
 				console.log("connected");
 			};
 
-			$(window).keypress(function (e) { // pressing key 
+			window.keypress(function (e) { // pressing key 
 					if (e.keyCode == 87) { // w
 						console.log('W');
 						ws.send("Forward");

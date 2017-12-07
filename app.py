@@ -191,7 +191,7 @@ class ControlHandler(TemplateHandler):
         self.redirect('/')
 
 
-class WebSocketHandler(TemplateHandler):
+class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def check_origin(self, origin):
         return True
 
