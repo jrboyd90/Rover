@@ -85,7 +85,7 @@ def moveBackward(speed,runTime):
     return;
 
 
-def moveBackwardWS(speed, runTime):
+def moveBackwardWS(speed):
     motorBackLeft.setSpeed(speed)
     motorBackRight.setSpeed(speed)
     motorFrontLeft.setSpeed(speed)
