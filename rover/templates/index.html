@@ -4,16 +4,15 @@
     <meta charset="utf-8">
 		<title>Surveillance Rover</title>
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
   <body>
     <img src="http://192.168.47.239:8888/video" style="width:100%; max-width: 800px; max-height:800px; border-radius:10px"></img>
-    <!-- <form action="/control" method="post"> -->
-      <table id='table' style = "width:100%">
+    <form action="/control" method="post">
+      <table style = "width:100%">
       	<tr>
       		<td></td>
       		<td>
-      		 <input id='Forward' type="submit"  name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%">Forward</input>
+      		 <input type="submit" value="Forward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
       		<td></td>
       		<td>
       		 <input type="submit" value="Fast" name ="buttonPress" style = "height:150px;width:150px; color:#a7cb00; font-weight:bold;font-size: 200%"></input>
@@ -35,7 +34,7 @@
       	</tr>
 
       </table>
-		<!-- </form> -->
+		</form>
 		
 		<script>
 
@@ -44,18 +43,7 @@
 			ws.onopen = function () {
 				console.log("connected");
 			};
-			$("#Forward").mousedown(function (e) {
-					console.log('F')
-					ws.send("Forward");
-				});
-			$("#Forward").on('tap',function (e) {
-					console.log('F')
-					ws.send("Forward");
-				});
-			$('#table').mouseup(function (e) {
-					console.log('Stop')
-					ws.send("Release");
-				});
+
 			$(document.body).keydown(function (e) { // pressing key 
 					if (e.keyCode == 87) { // w
 						console.log('W');
