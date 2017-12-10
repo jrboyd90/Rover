@@ -167,7 +167,7 @@ def increaseSpeed():
         print ('speed +10')
         print('speed = ' + str(speed))
     else:
-        speed = maxSpeed
+        print('speed = maxSpeed')
     return
 
 #Decrease speed
