@@ -165,7 +165,7 @@ def increaseSpeed():
     if speed <= maxSpeed:
         speed = speed + 10 #increaseing speed by 10
         print ('speed +10')
-        print (f'speed = {speed}')
+        print('speed = ' + str(speed))
     else:
         speed = maxSpeed
     return
@@ -181,7 +181,7 @@ def decreaseSpeed():
     else:
         speed = speed - 10
         print('speed -10')
-        print (f'speed = {speed}')
+        print('speed = ' + str(speed))
     return
 
 # release the motors for the Websocket
