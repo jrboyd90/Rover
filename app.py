@@ -242,9 +242,9 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         button = message
         print("The button hit is '" + button + "'")
         if button == 'Fast':
-            increaseSpeedWS()
+            increaseSpeed()
         elif button == 'Slow':
-            decreaseSpeedWS()
+            decreaseSpeed()
         elif button == 'Forward':
             moveForwardWS(speed)
             print("Move Forward")

@@ -35,7 +35,7 @@
 
       </table>
 		</form>
-		<h1>{{speed}}</h1>
+		
 		<script>
 
 			var ws = new WebSocket("ws://192.168.254.22:8080/ws");
@@ -61,6 +61,15 @@
 						console.log('A');
 						ws.send("Left");
 					}
+					else if (e.keyCode == 81) { //q
+						console.log('Q');
+						ws.send("Slow");
+					}
+					else if (e.keyCode == 69) { //e
+						console.log('E');
+						ws.send("Fast");
+					}
+
 			});
 			$(document.body).keyup(function (e) { // pressing key 
 					console.log('Stop');
