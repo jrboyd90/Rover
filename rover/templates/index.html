@@ -43,12 +43,18 @@
 				console.log("connected");
 			};
 
-			$(document).on("keypress", function (e) { // pressing key 
+			// $(document).on("keypress", function (e) { // pressing key 
+			// 		if (e.keyCode == 87) { // w
+			// 			console.log('W');
+			// 			ws.send("Forward");
+			// 		}
+			// 	});
+			document.body.addEventListener('keydown', function (e) {
 					if (e.keyCode == 87) { // w
-						console.log('W');
-						ws.send("Forward");
-					}
-				});
+					console.log('W');
+					ws.send("Forward");
+				}
+				});​​​​​​​
 
 			ws.onclose = function () {
 				console.log("disconnected");
