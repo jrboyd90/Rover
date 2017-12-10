@@ -48,6 +48,10 @@
 						console.log('W');
 						ws.send("Forward");
 					}
+					else if (e.keyCode == 83) { //s
+						console.log('S');
+						ws.send("Back");
+					}
 			});
 			$(document.body).keyup(function (e) { // pressing key 
 					console.log('Stop');

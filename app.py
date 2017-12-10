@@ -83,6 +83,18 @@ def moveBackward(speed,runTime):
     motorFrontLeft.run(Adafruit_MotorHAT.RELEASE)
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
+
+
+def moveBackwardWS(speed, runTime):
+    motorBackLeft.setSpeed(speed)
+    motorBackRight.setSpeed(speed)
+    motorFrontLeft.setSpeed(speed)
+    motorFrontRight.setSpeed(speed)
+    motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorBackRight.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontRight.run(Adafruit_MotorHAT.BACKWARD)
+    return
 #Turn Right
 def turnForwardRight(speedBackMotor,speedFrontMotor,runTime):
     motorBackLeft.setSpeed(speedBackMotor)
@@ -175,7 +187,8 @@ class ControlHandler(TemplateHandler):
         elif button == 'Slow':
             decreaseSpeed()
         elif button == 'Forward':
-            moveForward(speed,2)  #increase or decrese this time for sensitivity
+            moveForward(speed,
+                        2)  #increase or decrese this time for sensitivity
             print("Move Forward")
         elif button == 'Back':
             moveBackward(speed, 2)
@@ -209,7 +222,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             moveForwardWS(speed)
             print("Move Forward")
         elif button == 'Back':
-            moveBackwardWS(speed,2)
+            moveBackwardWS(speed)
             print("Move Back")
         elif button == 'Left':
             turnForwardLeftWS(speed,220,.5)
