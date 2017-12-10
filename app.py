@@ -156,6 +156,7 @@ def turnLeftWS(speed):
     motorBackRight.run(Adafruit_MotorHAT.FORWARD)
     motorFrontRight.setSpeed(speed)
     motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
+    return
 #Increase speed
 def increaseSpeed():
     global speed
@@ -163,10 +164,11 @@ def increaseSpeed():
     global minSpeed
     if speed <= maxSpeed:
         speed = speed + 10 #increaseing speed by 10
-        print ('speed +10')
-        print('speed =' + speed)
+        print('speed +10')
+        print('speed =' str(speed))
     else:
         speed = maxSpeed
+    return
 
 #Decrease speed
 def decreaseSpeed():
@@ -175,11 +177,12 @@ def decreaseSpeed():
     global minSpeed
     if speed <= minSpeed:
         speed = minSpeed
-        print ('speed = minSpeed')
+        print('speed = minSpeed')
     else:
         speed = speed - 10
-        print ('speed -10')
-        print ('speed =' + speed)
+        print('speed -10')
+        print('speed =' + str(speed))
+    return
 
 # release the motors for the Websocket
 def releaseWS():
