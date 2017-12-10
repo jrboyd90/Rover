@@ -37,7 +37,7 @@ minSpeed = 100
 maxSpeed = 200
 speed = 100 #intial speed
 
-def moveFoward(speed,runTime):
+def moveForward(speed,runTime):
     motorBackLeft.setSpeed(speed)
     motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
     motorBackRight.setSpeed(speed)
@@ -55,7 +55,7 @@ def moveFoward(speed,runTime):
     return;
 
 
-def moveFowardWS(speed):
+def moveForwardWS(speed):
     motorBackLeft.setSpeed(speed)
     motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
     motorBackRight.setSpeed(speed)
@@ -84,7 +84,7 @@ def moveBackward(speed,runTime):
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return;
 #Turn Right
-def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
+def turnForwardRight(speedBackMotor,speedFrontMotor,runTime):
     motorBackLeft.setSpeed(speedBackMotor)
     motorBackLeft.run(Adafruit_MotorHAT.FORWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
@@ -103,7 +103,7 @@ def turnFowardRight(speedBackMotor,speedFrontMotor,runTime):
 
 
 #Turn left
-def turnFowardLeft(speedBackMotor, speedFrontMotor, runTime):
+def turnForwardLeft(speedBackMotor, speedFrontMotor, runTime):
     motorBackLeft.setSpeed(speedBackMotor)
     motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
@@ -174,17 +174,17 @@ class ControlHandler(TemplateHandler):
             increaseSpeed()
         elif button == 'Slow':
             decreaseSpeed()
-        elif button == 'Foward':
-            moveFoward(speed,2)  #increase or decrese this time for sensitivity
-            print("Move Foward")
+        elif button == 'Forward':
+            moveForward(speed,2)  #increase or decrese this time for sensitivity
+            print("Move Forward")
         elif button == 'Back':
             moveBackward(speed, 2)
             print("Move Back")
         elif button == 'Left':
-            turnFowardLeft(speed, 220, .5)
+            turnForwardLeft(speed, 220, .5)
             print("Move Left")
         elif button == 'Right':
-            turnFowardRight(speed, 220, .5)
+            turnForwardRight(speed, 220, .5)
             print("Move Right")
         else:
             print("Do Nothing")
@@ -205,17 +205,17 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             increaseSpeedWS()
         elif button == 'Slow':
             decreaseSpeedWS()
-        elif button == 'Foward':
-            moveFowardWS(speed)
-            print("Move Foward")
+        elif button == 'Forward':
+            moveForwardWS(speed)
+            print("Move Forward")
         elif button == 'Back':
             moveBackwardWS(speed,2)
             print("Move Back")
         elif button == 'Left':
-            turnFowardLeftWS(speed,220,.5)
+            turnForwardLeftWS(speed,220,.5)
             print("Move Left")
         elif button == 'Right':
-            turnFowardRightWS(speed,220,.5)
+            turnForwardRightWS(speed,220,.5)
             print("Move Right")
         elif button == 'release':
             releaseWS()
