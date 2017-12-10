@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 		<title>Surveillance Rover</title>
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
   <body>
     <img src="http://192.168.47.239:8888/video" style="width:100%; max-width: 800px; max-height:800px; border-radius:10px"></img>
@@ -44,6 +45,10 @@
 				console.log("connected");
 			};
 			$("#Forward").mousedown(function (e) {
+					console.log('F')
+					ws.send("Forward");
+				});
+			$("#Forward").on('taphold',function (e) {
 					console.log('F')
 					ws.send("Forward");
 				});
