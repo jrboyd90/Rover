@@ -146,6 +146,16 @@ def turnLeft(speedBackMotor, speedFrontMotor, runTime):
     motorFrontRight.run(Adafruit_MotorHAT.RELEASE)
     return
 
+
+def turnLeft(speed):
+    motorBackLeft.setSpeed(speedBackMotor)
+    motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorFrontLeft.setSpeed(speedFrontMotor)
+    motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
+    motorBackRight.setSpeed(speedBackMotor)
+    motorBackRight.run(Adafruit_MotorHAT.FORWARD)
+    motorFrontRight.setSpeed(speedFrontMotor)
+    motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
 #Increase speed
 def increaseSpeed():
     global speed
@@ -184,6 +194,7 @@ class TemplateHandler(tornado.web.RequestHandler):
     def render_template (self, tpl, context):
         template = ENV.get_template(tpl)
         self.write(template.render(**context))
+
 
 class MainHandler(TemplateHandler):
     def get(self):
@@ -238,10 +249,10 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             moveBackwardWS(speed)
             print("Move Back")
         elif button == 'Left':
-            turnLeftWS(speed,220,.1)
+            turnLeftWS(speed)
             print("Move Left")
         elif button == 'Right':
-            turnRightWS(speeds)
+            turnRightWS(speed)
             print("Move Right")
         elif button == 'Release':
             releaseWS()
