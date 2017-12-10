@@ -52,6 +52,14 @@
 						console.log('S');
 						ws.send("Back");
 					}
+					else if (e.keyCode == 68) { //d
+						console.log('D');
+						ws.send("Right");
+					}
+					else if (e.keyCode == 65) { //a
+						console.log('A');
+						ws.send("Left");
+					}
 			});
 			$(document.body).keyup(function (e) { // pressing key 
 					console.log('Stop');
