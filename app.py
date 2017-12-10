@@ -217,7 +217,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         elif button == 'Right':
             turnForwardRightWS(speed,220,.5)
             print("Move Right")
-        elif button == 'release':
+        elif button == 'Release':
             releaseWS()
 
     def on_close(self):

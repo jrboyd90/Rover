@@ -48,11 +48,12 @@
 						console.log('W');
 						ws.send("Forward");
 					}
-					else {
-						console.log('N');
-					}
+			});
+			$(document.body).keyup(function (e) { // pressing key 
+					console.log('Stop');
+					ws.send("Release");
+					
 				});
-			
 
 			ws.onclose = function () {
 				console.log("disconnected");
