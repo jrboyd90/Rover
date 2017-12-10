@@ -13,7 +13,7 @@
       	<tr>
       		<td></td>
       		<td>
-      		 <input id='Forward' type="submit" value="Forward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+      		 <input id='Forward' type="submit"  name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
       		<td></td>
       		<td>
       		 <input type="submit" value="Fast" name ="buttonPress" style = "height:150px;width:150px; color:#a7cb00; font-weight:bold;font-size: 200%"></input>
@@ -48,7 +48,7 @@
 					console.log('F')
 					ws.send("Forward");
 				});
-			$("#Forward").on('taphold',function (e) {
+			$("#Forward").on('tap',function (e) {
 					console.log('F')
 					ws.send("Forward");
 				});
