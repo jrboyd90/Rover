@@ -147,7 +147,7 @@ def turnLeft(speedBackMotor, speedFrontMotor, runTime):
     return
 
 
-def turnLeft(speed):
+def turnLeftWS(speed):
     motorBackLeft.setSpeed(speedBackMotor)
     motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
     motorFrontLeft.setSpeed(speedFrontMotor)
