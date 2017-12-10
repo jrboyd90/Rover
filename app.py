@@ -148,13 +148,13 @@ def turnLeft(speedBackMotor, speedFrontMotor, runTime):
 
 
 def turnLeftWS(speed):
-    motorBackLeft.setSpeed(speedBackMotor)
+    motorBackLeft.setSpeed(speed)
     motorBackLeft.run(Adafruit_MotorHAT.BACKWARD)
-    motorFrontLeft.setSpeed(speedFrontMotor)
+    motorFrontLeft.setSpeed(speed)
     motorFrontLeft.run(Adafruit_MotorHAT.BACKWARD)
-    motorBackRight.setSpeed(speedBackMotor)
+    motorBackRight.setSpeed(speed)
     motorBackRight.run(Adafruit_MotorHAT.FORWARD)
-    motorFrontRight.setSpeed(speedFrontMotor)
+    motorFrontRight.setSpeed(speed)
     motorFrontRight.run(Adafruit_MotorHAT.FORWARD)
 #Increase speed
 def increaseSpeed():
