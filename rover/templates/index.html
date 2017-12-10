@@ -9,11 +9,11 @@
   <body>
     <img src="http://192.168.47.239:8888/video" style="width:100%; max-width: 800px; max-height:800px; border-radius:10px"></img>
     <!-- <form action="/control" method="post"> -->
-      <table style = "width:100%">
+      <table id='table' style = "width:100%">
       	<tr>
       		<td></td>
       		<td>
-      		 <button id='Forward' value="Forward"  name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></button>
+      		 <input id='Forward' type="submit"  name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%">Forward</input>
       		<td></td>
       		<td>
       		 <input type="submit" value="Fast" name ="buttonPress" style = "height:150px;width:150px; color:#a7cb00; font-weight:bold;font-size: 200%"></input>
@@ -52,7 +52,7 @@
 					console.log('F')
 					ws.send("Forward");
 				});
-			$(document.body).mouseup(function (e) {
+			$('#table').mouseup(function (e) {
 					console.log('Stop')
 					ws.send("Release");
 				});
