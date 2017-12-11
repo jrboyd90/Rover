@@ -21,7 +21,14 @@
       	<tr>
       		<td></td>
       		<td>
-      		 <input type="submit" value="Forward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input>
+			   <!-- <input type="submit" value="Forward" name ="buttonPress" style = "height:150px;width:150px;font-weight:bold;font-size: 180%"></input> -->
+			<button class="arrow up" type='submit' value ='Forward' name='buttonPress'>
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80"
+				 xml:space="preserve">
+					<polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+				0.375,0.375 45.63,38.087 0.375,75.8 " />
+				</svg>
+			</button>
       		<td></td>
       		<td>
       		 <input type="submit" value="Fast" name ="buttonPress" style = "height:150px;width:150px; color:#a7cb00; font-weight:bold;font-size: 200%"></input>
@@ -40,11 +47,12 @@
       		<td>
       		 <input type="submit" value="Slow" name ="buttonPress" style = "height:150px;width:150px; color:#f00; font-weight:bold; font-size: 200%"></input>
       		</td>
-      	</tr>
+		  </tr>
+		  
 
       </table>
 		</form>
-		
+		<h3>Speed = 1</h3>
 		<script>
 
 			// var ws = new WebSocket("ws://192.168.254.22:8080/ws");
