@@ -15,7 +15,7 @@
 		</style>
   </head>
   <body>
-    <img src="http://192.168.131.115:8081" style="width:100%;  max-height:800px; border-radius:10px"></img>
+    <img src="http://192.168.1.114:8081" style="width:100%;  max-height:800px; border-radius:10px"></img>
     <form action="/control" method="post">
       <table style = "width:100%">
       	<tr>
@@ -49,7 +49,7 @@
 		<script>
 
 			// var ws = new WebSocket("ws://192.168.254.22:8080/ws");
-			var ws = new WebSocket("ws://192.168.131.115:8888/ws");
+			var ws = new WebSocket("ws://192.168.1.114:8888/ws");
 
 			ws.onopen = function () {
 				console.log("connected");
