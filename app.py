@@ -8,7 +8,7 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 import atexit
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-PORT = int(os.environ.get('PORT', '8080'))
+PORT = int(os.environ.get('PORT', '8888'))
 
 # Retrieve path where HTML lives
 ENV = Environment(
@@ -275,5 +275,5 @@ def make_app():
 if __name__ == "__main__":
     tornado.log.enable_pretty_logging()
     app = make_app()
-    app.listen(PORT, print('Hosting at 8080'))
+    app.listen(PORT, print('Hosting at 8888'))
     tornado.ioloop.IOLoop.current().start()
